@@ -93,7 +93,6 @@ class MyAppState extends State<GaurApp> {
                                 padding: const EdgeInsets.only(left: 20),
                                 child: InkWell(
                                   onTap: () {
-                                    print('Value decrease hua');
                                     setState(() {
                                       noOfBeads--;
                                     });
@@ -295,62 +294,72 @@ class MyAppState extends State<GaurApp> {
                   width: double.maxFinite,
                   height: 200,
                   decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 100, 192, 204),
                       borderRadius: BorderRadius.all(Radius.circular(12))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'You are Willing to Order :',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      Visibility(
-                          visible: (noOfBeadBags <= 0 &&
-                              noOfBeads <= 0 &&
-                              noOfGopiChandan <= 0 &&
-                              noOfIdols <= 0),
-                          child: const Text('Nothing!!!!',
-                              style: TextStyle(
-                                  fontSize: 30, fontWeight: FontWeight.bold))),
-                      Visibility(
-                          visible: noOfBeadBags > 0,
-                          child: Text('$noOfBeadBags Bead Bags',
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold))),
-                      Visibility(
-                          visible: noOfBeads > 0,
-                          child: Text('$noOfBeads Beads',
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold))),
-                      Visibility(
-                          visible: noOfGopiChandan > 0,
-                          child: Text('$noOfGopiChandan Gopi Chandan blocks',
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold))),
-                      Visibility(
-                          visible: noOfIdols > 0,
-                          child: Text('$noOfIdols Dieties',
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold))),
-                      Visibility(
-                          visible: (noOfBeadBags > 0 ||
-                              noOfBeads > 0 ||
-                              noOfGopiChandan > 0 ||
-                              noOfIdols > 0),
-                          child: ElevatedButton.icon(
-                            icon: const Icon(Icons.shopping_cart),
-                            style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                    Colors.purple[900])),
-                            onPressed: () {
-                              // AlertDialog(
-
-                              // );
-                            },
-                            label: const Text('Buy Now'),
-                          ))
-                    ],
+                  child: Card(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'You are Willing to Order :',
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                        Visibility(
+                            visible: (noOfBeadBags <= 0 &&
+                                noOfBeads <= 0 &&
+                                noOfGopiChandan <= 0 &&
+                                noOfIdols <= 0),
+                            child: const Text('Nothing!!!!',
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold))),
+                        Visibility(
+                            visible: noOfBeadBags > 0,
+                            child: Text('$noOfBeadBags Bead Bags',
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                        Visibility(
+                            visible: noOfBeads > 0,
+                            child: Text('$noOfBeads Beads',
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                        Visibility(
+                            visible: noOfGopiChandan > 0,
+                            child: Text('$noOfGopiChandan Gopi Chandan blocks',
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                        Visibility(
+                            visible: noOfIdols > 0,
+                            child: Text('$noOfIdols Dieties',
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                        Visibility(
+                            visible: (noOfBeadBags > 0 ||
+                                noOfBeads > 0 ||
+                                noOfGopiChandan > 0 ||
+                                noOfIdols > 0),
+                            child: ElevatedButton.icon(
+                              icon: const Icon(
+                                Icons.shopping_cart,
+                                color: Colors.white,
+                              ),
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.purple[900])),
+                              onPressed: () {},
+                              label: const Text(
+                                'Buy Now',
+                                style: TextStyle(
+                                    fontFamily: "indie_flower",
+                                    color: Colors.white),
+                              ),
+                            ))
+                      ],
+                    ),
                   ),
                 ),
               ),
